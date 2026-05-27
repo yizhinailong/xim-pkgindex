@@ -192,10 +192,10 @@ local function __write_claude_settings(settings_file, settings, api_key, keep_ex
     log.info("已写入 Claude DeepSeek 配置: " .. settings_file)
 end
 
-local function __verify_claude_deepseek()
-    log.info("正在调用 Claude Code 发起一次纯文本 DeepSeek 配置验证请求...")
+local function __verify_claude()
+    log.info("正在调用 Claude Code 发起一次配置验证请求...")
     print("")
-    system.exec([[claude -p --setting-sources user --tools "" --no-session-persistence "你是什么模型? 以及 1 + 2 = ? . 最后恭喜/并简单赞扬用户配置好了claude + deepseek的环境！"]])
+    system.exec([[claude -p --setting-sources user tell_model_name_and_calculate_1_plus_2_use_chinese]])
     print("")
 end
 
@@ -213,8 +213,8 @@ function config()
     local api_key, keep_existing_key = __read_deepseek_api_key(existing_api_key)
     __ensure_onboarding_completed()
     __write_claude_settings(settings_file, settings, api_key, keep_existing_key)
-    log.info("Claude DeepSeek 配置已完成。验证通过后即可直接使用 claude 命令行工具...")
-    __verify_claude_deepseek()
+    log.info("Claude DeepSeek 配置已完成。运行 claude 命令开始使用...")
+    __verify_claude()
     return true
 end
 

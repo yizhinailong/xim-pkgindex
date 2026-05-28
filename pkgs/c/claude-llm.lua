@@ -15,24 +15,37 @@ package = {
         windows = {
             deps = { "xim:claude" },
             ["latest"] = { ref = "deepseek" },
-            ["deepseek"] = {},
+            ["deepseek"] = { ref = "deepseek-v4-pro" },
+            ["deepseek-v4-pro"] = {},
+            ["deepseek-v4-flash"] = {}
         },
         linux = {
             deps = { "xim:claude" },
             ["latest"] = { ref = "deepseek" },
-            ["deepseek"] = {},
+            ["deepseek"] = { ref = "deepseek-v4-pro" },
+            ["deepseek-v4-pro"] = {},
+            ["deepseek-v4-flash"] = {}
         },
         macosx = {
             deps = { "xim:claude" },
             ["latest"] = { ref = "deepseek" },
-            ["deepseek"] = {},
+            ["deepseek"] = { ref = "deepseek-v4-pro" },
+            ["deepseek-v4-pro"] = {},
+            ["deepseek-v4-flash"] = {}
         },
     },
 }
 
 import("xim.libxpkg.json")
 import("xim.libxpkg.log")
+import("xim.libxpkg.pkginfo")
 import("xim.libxpkg.system")
+
+
+local version_to_model_name = {
+    ["deepseek-v4-pro"] = "deepseek-v4-pro[1m]",
+    ["deepseek-v4-flash"] = "deepseek-v4-flash",
+}
 
 local function __trim(value)
     return (value or ""):match("^%s*(.-)%s*$")
@@ -158,12 +171,17 @@ local function __apply_deepseek_env(env, api_key, keep_existing_key)
     if not keep_existing_key then
         __set_env(env, "ANTHROPIC_AUTH_TOKEN", api_key, true)
     end
+
+    local model_name = version_to_model_name[pkginfo.version()] or "deepseek-v4-pro[1m]"
+
+    log.info("配置 Claude 使用 DeepSeek 模型: " .. model_name)
+
     __set_env(env, "ANTHROPIC_BASE_URL", "https://api.deepseek.com/anthropic")
-    __set_env(env, "ANTHROPIC_MODEL", "deepseek-v4-pro[1m]")
-    __set_env(env, "ANTHROPIC_DEFAULT_OPUS_MODEL", "deepseek-v4-pro[1m]")
-    __set_env(env, "ANTHROPIC_DEFAULT_SONNET_MODEL", "deepseek-v4-pro[1m]")
-    __set_env(env, "ANTHROPIC_DEFAULT_HAIKU_MODEL", "deepseek-v4-pro[1m]")
-    __set_env(env, "CLAUDE_CODE_SUBAGENT_MODEL", "deepseek-v4-pro[1m]")
+    __set_env(env, "ANTHROPIC_MODEL", model_name)
+    __set_env(env, "ANTHROPIC_DEFAULT_OPUS_MODEL", model_name)
+    __set_env(env, "ANTHROPIC_DEFAULT_SONNET_MODEL", model_name)
+    __set_env(env, "ANTHROPIC_DEFAULT_HAIKU_MODEL", "deepseek-v4-flash")
+    __set_env(env, "CLAUDE_CODE_SUBAGENT_MODEL", "deepseek-v4-flash")
     __set_env(env, "CLAUDE_CODE_EFFORT_LEVEL", "max")
     __set_env(env, "API_TIMEOUT_MS", "3000000")
     __set_env(env, "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC", "1")

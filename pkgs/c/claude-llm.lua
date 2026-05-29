@@ -13,21 +13,21 @@ package = {
 
     xpm = {
         windows = {
-            deps = { "xim:claude" },
+            deps = { "xim:claude@2.1.153" },
             ["latest"] = { ref = "deepseek" },
             ["deepseek"] = { ref = "deepseek-v4-pro" },
             ["deepseek-v4-pro"] = {},
             ["deepseek-v4-flash"] = {}
         },
         linux = {
-            deps = { "xim:claude" },
+            deps = { "xim:claude@2.1.153" },
             ["latest"] = { ref = "deepseek" },
             ["deepseek"] = { ref = "deepseek-v4-pro" },
             ["deepseek-v4-pro"] = {},
             ["deepseek-v4-flash"] = {}
         },
         macosx = {
-            deps = { "xim:claude" },
+            deps = { "xim:claude@2.1.153" },
             ["latest"] = { ref = "deepseek" },
             ["deepseek"] = { ref = "deepseek-v4-pro" },
             ["deepseek-v4-pro"] = {},

@@ -34,7 +34,8 @@ package = {
     -- Historical 0.4.x entries keep their direct GitHub release URLs.
     xpm = {
         linux = {
-            ["latest"] = { ref = "0.4.54" },
+            ["latest"] = { ref = "0.4.55" },
+            ["0.4.55"] = "XLINGS_RES",
             ["0.4.54"] = "XLINGS_RES",
             ["0.4.53"] = "XLINGS_RES",
             ["0.4.52"] = "XLINGS_RES",
@@ -181,7 +182,8 @@ package = {
             ["0.3.0"] = "XLINGS_RES",
         },
         macosx = {
-            ["latest"] = { ref = "0.4.54" },
+            ["latest"] = { ref = "0.4.55" },
+            ["0.4.55"] = "XLINGS_RES",
             ["0.4.54"] = "XLINGS_RES",
             ["0.4.53"] = "XLINGS_RES",
             ["0.4.52"] = "XLINGS_RES",
@@ -328,7 +330,8 @@ package = {
             ["0.3.0"] = "XLINGS_RES",
         },
         windows = {
-            ["latest"] = { ref = "0.4.54" },
+            ["latest"] = { ref = "0.4.55" },
+            ["0.4.55"] = "XLINGS_RES",
             ["0.4.54"] = "XLINGS_RES",
             ["0.4.53"] = "XLINGS_RES",
             ["0.4.52"] = "XLINGS_RES",

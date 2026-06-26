@@ -18,7 +18,7 @@ package = {
 
     xpm = {
         linux = {
-            ["latest"] = { ref = "20.1.7" },
+            ["latest"] = { ref = "22.1.8" },
             ["20.1.7"] = {
                 url = {
                     GLOBAL = "https://github.com/xlings-res/llvm/releases/download/20.1.7/llvm-tools-20.1.7-linux-x86_64.tar.gz",
@@ -26,13 +26,27 @@ package = {
                 },
                 sha256 = nil,
             },
+            ["22.1.8"] = {
+                url = {
+                    GLOBAL = "https://github.com/xlings-res/llvm/releases/download/22.1.8/llvm-tools-22.1.8-linux-x86_64.tar.gz",
+                    CN = "https://gitcode.com/xlings-res/llvm/releases/download/22.1.8/llvm-tools-22.1.8-linux-x86_64.tar.gz",
+                },
+                sha256 = nil,
+            },
         },
         windows = {
-            ["latest"] = { ref = "20.1.7" },
+            ["latest"] = { ref = "22.1.8" },
             ["20.1.7"] = {
                 url = {
                     GLOBAL = "https://github.com/xlings-res/llvm/releases/download/20.1.7/llvm-tools-20.1.7-windows-x86_64.zip",
                     CN = "https://gitcode.com/xlings-res/llvm/releases/download/20.1.7/llvm-tools-20.1.7-windows-x86_64.zip",
+                },
+                sha256 = nil,
+            },
+            ["22.1.8"] = {
+                url = {
+                    GLOBAL = "https://github.com/xlings-res/llvm/releases/download/22.1.8/llvm-tools-22.1.8-windows-x86_64.zip",
+                    CN = "https://gitcode.com/xlings-res/llvm/releases/download/22.1.8/llvm-tools-22.1.8-windows-x86_64.zip",
                 },
                 sha256 = nil,
             },
@@ -45,11 +59,18 @@ package = {
         -- headers) so clangd's derived resource-dir resolves stddef.h etc.
         -- for files that include libc++ headers (e.g. #include <gtest/gtest.h>).
         macosx = {
-            ["latest"] = { ref = "20.1.7" },
+            ["latest"] = { ref = "22.1.8" },
             ["20.1.7"] = {
                 url = {
                     GLOBAL = "https://github.com/xlings-res/llvm/releases/download/20.1.7/llvm-tools-20.1.7-macosx-arm64.tar.xz",
                     CN = "https://gitcode.com/xlings-res/llvm/releases/download/20.1.7/llvm-tools-20.1.7-macosx-arm64.tar.xz",
+                },
+                sha256 = nil,
+            },
+            ["22.1.8"] = {
+                url = {
+                    GLOBAL = "https://github.com/xlings-res/llvm/releases/download/22.1.8/llvm-tools-22.1.8-macosx-arm64.tar.xz",
+                    CN = "https://gitcode.com/xlings-res/llvm/releases/download/22.1.8/llvm-tools-22.1.8-macosx-arm64.tar.xz",
                 },
                 sha256 = nil,
             },
